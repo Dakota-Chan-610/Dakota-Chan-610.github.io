@@ -23,6 +23,7 @@ section {
 .card:hover {
     transform: scale(1.05);
 }
+
 .certification-slider {
     display: flex;
     overflow: hidden;
@@ -33,11 +34,13 @@ section {
 .certification-item {
     display: inline-block;
     margin-right: 50px; /* Space between items */
+    text-align: center; /* Center text below the logo */
 }
 
 .cert-logo {
-    width: 50px; /* Adjust size as needed */
-    height: auto;
+    width: 80px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80px; /* Optional: limit height to keep logos uniform */
 }
 
 @keyframes scroll {
