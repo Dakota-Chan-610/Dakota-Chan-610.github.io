@@ -7,3 +7,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+const slider = document.querySelector('.certification-slider');
+slider.innerHTML += slider.innerHTML; // Duplicate content
