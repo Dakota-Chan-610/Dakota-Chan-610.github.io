@@ -23,3 +23,28 @@ section {
 .card:hover {
     transform: scale(1.05);
 }
+.certification-slider {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: scroll 15s linear infinite;
+}
+
+.certification-item {
+    display: inline-block;
+    margin-right: 50px; /* Space between items */
+}
+
+.cert-logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
