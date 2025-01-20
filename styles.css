@@ -25,35 +25,39 @@ section {
 }
 
 .certification-slider-wrapper {
-    overflow: hidden; 
-    width: 100%;
-    position: relative; 
+    overflow: hidden; /* Hide overflow */
+    width: 100%; /* Full width */
+    position: relative; /* Positioning context */
 }
 
-/* Slider with all items */
 .certification-slider {
-    display: flex; 
-    animation: scroll-left 15s linear infinite; 
-    width: max-content; 
+    display: flex; /* Arrange items in a row */
+    transition: transform 0.5s ease; /* Smooth transition for sliding effect */
 }
 
 .certification-item {
-    display: inline-block;
-    margin-right: 50px; 
-    text-align: center;
+    min-width: 300px; /* Fixed width for each card */
+    margin: 0 10px; /* Space between cards */
 }
 
-/* Certification logos */
+.card {
+    border: 1px solid #ddd; /* Card border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside cards */
+    text-align: center; /* Center text */
+}
+
 .cert-logo {
-    width: 20px; 
-    height: auto; 
+    width: 50px; /* Fixed width for logos */
+    height: auto; /* Maintain aspect ratio */
 }
 
+/* Animation styles for scrolling effect */
 @keyframes scroll-left {
-    0% {
-        transform: translateX(100%); 
+    from {
+        transform: translateX(100%); /* Start off-screen to the right */
     }
-    100% {
-        transform: translateX(-100%); 
+    to {
+        transform: translateX(-100%); /* End off-screen to the left */
     }
 }
