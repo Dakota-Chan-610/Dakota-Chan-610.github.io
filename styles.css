@@ -18,6 +18,10 @@ section {
 
 .card {
     transition: transform 0.3s;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    padding: 20px;
+    text-align: center; 
 }
 
 .card:hover {
@@ -25,37 +29,24 @@ section {
 }
 
 .certification-slider-wrapper {
-    overflow: hidden; /* Hide overflow */
-    width: 100%; /* Full width */
-    position: relative; /* Positioning context */
+    overflow: hidden;
+    width: 100%; 
+    position: relative; 
 }
 
 .certification-slider {
-    display: flex; /* Arrange items in a row */
-    transition: transform 0.5s ease; /* Smooth transition for sliding effect */
+    display: flex; 
+    transition: transform 0.5s ease;
 }
 
 .certification-item {
-    min-width: 300px; /* Fixed width for each card */
-    margin: 0 10px; /* Space between cards */
+    min-width: 300px;
+    margin: 0 10px; 
 }
 
-.card {
-    border: 1px solid #ddd; /* Card border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside cards */
-    text-align: center; /* Center text */
-}
-
-.cert-logo {
-    width: 50px; /* Fixed width for logos */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Animation styles for scrolling effect */
 @keyframes scroll-left {
     from {
-        transform: translateX(100%); /* Start off-screen to the right */
+        transform: translateX(100%); 
     }
     to {
         transform: translateX(-100%); /* End off-screen to the left */
