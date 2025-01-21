@@ -9,16 +9,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 const slider = document.querySelector('.certification-slider');
 const items = document.querySelectorAll('.certification-item');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 let currentIndex = 0;
 
+// Function to update the visible items
 function updateSlider() {
-    const offset = -currentIndex * (items[0].offsetWidth + 20); 
+    const offset = -currentIndex * (items[0].offsetWidth + 20); // Adjust for margin
     slider.style.transform = `translateX(${offset}px)`;
 }
 
+// Function to move to the next card
 function nextCard() {
-    currentIndex = (currentIndex + 1) % items.length;
+    currentIndex++;
+    if (currentIndex >= items.length) {
+        currentIndex = 0; // Reset to first card
+    }
     updateSlider();
 }
 
-setInterval(nextCard, 5000);
+// Function to move to the previous card
+function prevCard() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = items.length - 1; // Go to last card
+    }
+    updateSlider();
+}
+
+// Event listeners for buttons
+nextBtn.addEventListener('click', nextCard);
+prevBtn.addEventListener('click', prevCard);
+
+// Automatically switch cards every 3 seconds (optional)
+setInterval(nextCard, 3000);
