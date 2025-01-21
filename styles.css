@@ -73,3 +73,45 @@ section {
 .icon:hover {
     color: #007bff; /* Change color on hover */
 }
+
+@keyframes gradient-animation {
+    0% {
+        background-color: #6a11cb; /* Starting color */
+    }
+    50% {
+        background-color: #37a2ef; /* Middle color */
+    }
+    100% {
+        background-color: #6a11cb; /* Ending color */
+    }
+}
+
+.navbar {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    animation: gradient-animation 5s ease infinite; /* Change duration as needed */
+    background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(55, 162, 239, 0.9)); /* Fallback for initial load */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style-type: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white; /* Adjust link color */
+    margin-right: 15px; /* Space between links */
+}
+
+h1 {
+    font-size: 3em; /* Adjust the size as needed */
+    text-align: center; /* Center align the text */
+    margin: 20px 0; /* Add some margin for spacing */
+}
