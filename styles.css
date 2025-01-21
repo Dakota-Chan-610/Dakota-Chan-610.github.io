@@ -28,54 +28,34 @@ section {
     transform: scale(1.05);
 }
 
-/* Wrapper for the slider */
 .certification-slider-wrapper {
     display: flex; /* Align items horizontally */
     align-items: center; /* Center items vertically */
     position: relative; /* Positioning context for buttons */
 }
 
-/* Slider container */
-.certification-slider {
-    display: flex; /* Arrange items in a row */
-    transition: transform 0.5s ease; /* Smooth transition for sliding effect */
-    overflow: hidden; /* Hide overflowing content */
-    width: 100%; /* Take full width */
-}
-
-/* Individual certification items */
-.certification-item {
-    min-width: 300px; /* Fixed width for each card */
-    margin: 0 10px; /* Space between cards */
-}
-
-/* Certification logos */
-.cert-logo {
-    width: 80px;
-    height: auto;
-}
-
-/* Navigation buttons (hidden by default) */
+/* Navigation buttons */
 .nav-btn {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 40px; /* Narrow width so it doesn’t cover card content */
-    background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
+    position: absolute; /* Position them absolutely */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust to truly center */
+    width: 40px; /* Narrow width */
+    height: 100px; /* Match height of card */
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
     border: none;
-    color: transparent; /* Hide the text by default */
+    color: transparent; /* Hide text by default */
     cursor: pointer;
     z-index: 10; /* Ensure it appears above other elements */
 }
 
 /* Left button styling */
 .left-btn {
-    left: 0; /* Position on the left side of the section */
+    left: -50px; /* Position on the left side of the section */
 }
 
 /* Right button styling */
 .right-btn {
-    right: 0; /* Position on the right side of the section */
+    right: -50px; /* Position on the right side of the section */
 }
 
 /* Show "<" or ">" only on hover over the slider wrapper */
@@ -85,9 +65,8 @@ section {
 
 /* Style for "<" and ">" symbols inside buttons */
 .nav-btn span {
-    font-size: calc(100% - 20px); /* Stretch vertically to match card height */
+    font-size: calc(100% + 20px); /* Stretch vertically to match card height */
     display: inline-block;
-    transform-origin: center;
 }
 
 @keyframes scroll-left {
