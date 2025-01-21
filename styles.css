@@ -44,6 +44,11 @@ section {
     margin: 0 10px; 
 }
 
+#prevBtn, #nextBtn {
+    margin-top: 20px; /* Space above buttons */
+    margin-right: 10px; /* Space between buttons */
+}
+
 @keyframes scroll-left {
     from {
         transform: translateX(100%); 
