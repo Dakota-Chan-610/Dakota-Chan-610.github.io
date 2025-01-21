@@ -29,6 +29,27 @@ h2 {
     margin-bottom: 20px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background-image: radial-gradient(farthest-side at left center, #2b2b2b, rgb(10, 32, 148));
+}
+
+.main-content {
+    position: relative;
+}
+
 #cards {
     max-width: 1070px;
     padding: 0 2rem;
