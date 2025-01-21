@@ -19,7 +19,6 @@ function updateSlider() {
     slider.style.transform = `translateX(${offset}px)`;
 }
 
-// Function to move to the next card
 function nextCard() {
     currentIndex++;
     if (currentIndex >= items.length) {
@@ -28,7 +27,6 @@ function nextCard() {
     updateSlider();
 }
 
-// Function to move to the previous card
 function prevCard() {
     currentIndex--;
     if (currentIndex < 0) {
