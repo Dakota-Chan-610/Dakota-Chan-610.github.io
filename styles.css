@@ -44,9 +44,27 @@ section {
     margin: 0 10px; 
 }
 
-#prevBtn, #nextBtn {
-    margin-top: 20px; /* Space above buttons */
-    margin-right: 10px; /* Space between buttons */
+.nav-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 40px; /* Large size for the symbol */
+    color: transparent; /* Hide text initially */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: relative; /* Positioning context for pseudo-elements */
+    width: 50px; /* Set width for consistency */
+    height: 50px; /* Set height for consistency */
+}
+
+.nav-btn span {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.nav-btn:hover span {
+    color: black; /* Change color on hover */
 }
 
 @keyframes scroll-left {
