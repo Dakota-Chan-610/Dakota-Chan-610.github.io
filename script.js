@@ -7,35 +7,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  loop: true,
-  slidesPerView: 1,
-  spaceBetween: 30,
+const slider = document.querySelector('.certification-slider');
+const items = document.querySelectorAll('.certification-item');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let currentIndex = 0;
 
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + "</span>";
-    },
-  },
+// Function to update the visible items
+function updateSlider() {
+    const offset = -currentIndex * (items[0].offsetWidth + 20); // Adjust for margin
+    slider.style.transform = `translateX(${offset}px)`;
+}
 
-  // Navigation arrows
-  navigation: {
-    nextEl: ".nextArrowBtn",
-    prevEl: ".prevArrowBtn",
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    576: {
-      slidesPerView: 2,
-    },
-    // when window width is >= 480px
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-  },
-});
+// Function to move to the next card
+function nextCard() {
+    currentIndex++;
+    if (currentIndex >= items.length) {
+        currentIndex = 0; // Reset to first card
+    }
+    updateSlider();
+}
+
+// Function to move to the previous card
+function prevCard() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = items.length - 1; // Go to last card
+    }
+    updateSlider();
+}
+
+// Event listeners for buttons
+nextBtn.addEventListener('click', nextCard);
+prevBtn.addEventListener('click', prevCard);
+
+// Automatically switch cards every 3 seconds (optional)
+setInterval(nextCard, 3000);
