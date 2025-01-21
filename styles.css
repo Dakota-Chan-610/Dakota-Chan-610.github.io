@@ -57,3 +57,19 @@ section {
         transform: translateX(-100%); /* End off-screen to the left */
     }
 }
+
+.social-icons {
+    margin-top: 20px; /* Space above icons */
+}
+
+.icon {
+    font-size: 24px; /* Size of the icons */
+    margin: 0 15px; /* Space between icons */
+    color: #000; /* Icon color */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.icon:hover {
+    color: #007bff; /* Change color on hover */
+}
