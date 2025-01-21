@@ -29,42 +29,84 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Swiper Styles */
-.swiper-container {
-    width: 100%;
-    height: auto;
+#cards {
+    max-width: 1070px;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    min-height: 100vh;
 }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Card Styles */
-.card {
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
+.card-content {
+    background-color: rgba(249, 246, 246, 0.06);
+    cursor: pointer;
     text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 3rem 0;
+    border-radius: 5px;
 }
 
-.card-img-top {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
+.card-content img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 5px solid #fff;
 }
 
-/* Navigation Buttons */
-.swiper-button-prev,
-.swiper-button-next {
-    color: #000; /* Button color */
+.card-title {
+    padding-top: 2rem;
+}
+
+.prevArrowBtn,
+.nextArrowBtn {
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+    z-index: 1000;
+    border: 1px solid #FFF;
+    color: #FFF;
+    background-color: transparent;
+    font-size: .80rem;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    width: 2.75rem;
+    height: 2.75rem;
+    line-height: 2.625rem;
+    border-radius: 100%;
+    transition: all .5s;
+    opacity: 0;
+}
+
+.main-content:hover .prevArrowBtn,
+.main-content:hover .nextArrowBtn {
+    opacity: 1;
+}
+
+.prevArrowBtn {
+    left: -18px;
+}
+
+.nextArrowBtn {
+    right: -18px;
+}
+
+.swiper-pagination {
+    position: static;
+    padding-top: 20px;
 }
 
 .swiper-pagination-bullet {
-    background-color: #000; /* Pagination dots color */
+    background-color: #FFF;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    width: 22px;
+    border-radius: 7px;
+    background-color: #ea534a;
 }
 
 @keyframes scroll-left {
