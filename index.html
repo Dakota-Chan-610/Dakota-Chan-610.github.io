@@ -3,179 +3,650 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakota Chan - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Dakota Chan - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Dakota Chan</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">Dakota Chan</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Game</a>
+                <a href="#updates">Updates</a>
+                <a href="#contact">Contact</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section id="about" class="text-center py-5">
-        <div class="container">
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="Icon.jpg" class="about-img"
-                        alt="Icon">
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <div class="avatar-container">
+                    <img src="images/avatar.jpg" alt="Dakota Chan" class="avatar">
                 </div>
-                <div class="about-caption">
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-                        Data Analyst with BSc in Mathematics, 3+ years' experience. Skilled in Python, SQL, MongoDB, Looker Studio. Financial data analysis expert. ISO27001, AWS, GCP certified. Strong communicator, quick learner. Experienced in Chabot performance analysis, providing insights for optimization. Known for efficiency improvements and data issue resolution.
-                    </p>
-                    <a href="Resume.pdf" download>
-                        <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
+                <h1>Hi, I'm <span class="highlight">Dakota Chan</span></h1>
+                <p class="subtitle">Senior Data Anlayst</p>
+                <p class="description">Hey! I'm a seasoned data analyst, turbo-charging solutions with AI and slick coding prowess! 💥 With a deep bench of experience, I crunch complex datasets into razor-sharp insights, building cutting-edge, high-impact systems that solve tough problems with a high-voltage vibe! ⚡️</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn primary">Get in Touch</a>
+                    <a href="#updates" class="btn secondary">View Updates</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ching-lam-c-901733175/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Dakota-Chan-610" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:clchanao@connect.ust.hk" class="social-icon">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
+                <div class="certification-logos">
+                    <div class="certification-track">
+                        <!-- First set of logos -->
+                        <a href="https://www.credly.com/badges/46afd902-db47-403d-8adb-9375ad225d53/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert1.png" alt="Meta Certified Marketing Science Professional">
+                            <div class="cert-details">
+                                <div class="cert-name">Meta Certified Marketing Science Professional</div>
+                                <div class="cert-issuer">Meta</div>
+                                <div class="cert-date">Issued: May 2025</div>
+                                <div class="cert-description">The Meta Certified Marketing Science Professional credential is awarded to professionals who have proven advanced competency in using data, insights, and measurement to make marketing recommendations.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/GoogleDataAnalytics" target="_blank" class="cert-logo">
+                            <img src="images/cert2.png" alt="Certified SAFe® 6 Practitioner">
+                            <div class="cert-details">
+                                <div class="cert-name">Certified SAFe® 6 Practitioner</div>
+                                <div class="cert-issuer">Scaled Agile Inc</div>
+                                <div class="cert-date">Issued: October 2024</div>
+                                <div class="cert-description">A Certified SAFe® 6 Practitioner is a SAFe team member responsible for connecting to the Customer, planning the work, delivering value, getting feedback, and relentlessly improving.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.credly.com/badges/ed861f42-5a77-4109-abbb-0afca7bd9b14/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert3.png" alt="AWS Certified Cloud Practitioner">
+                            <div class="cert-details">
+                                <div class="cert-name">AWS Certified Cloud Practitioner</div>
+                                <div class="cert-issuer">Amazon Web Services Training and Certification</div>
+                                <div class="cert-date">Issued: July 2024</div>
+                                <div class="cert-description">Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.credly.com/badges/24a63191-d130-4bf3-a778-f8d2144d6ef5/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert4.png" alt="Cloud Digital Leader Certification">
+                            <div class="cert-details">
+                                <div class="cert-name">Cloud Digital Leader Certification</div>
+                                <div class="cert-issuer">Google Cloud</div>
+                                <div class="cert-date">Issued: June 2024</div>
+                                <div class="cert-description">A Cloud Digital Leader can articulate the capabilities of Google Cloud core products and services and how they benefit organizations. They can also describe common business use cases and how cloud solutions support an enterprise.This certification is for anyone who wishes to demonstrate their knowledge of cloud computing basics and how Google Cloud products and services can be used to achieve an organization's goals.</div>
+                            </div>
+                        </a>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/ChingLamChan-4742/F8A1B3E6C8900EB2?sharingId=8AD67816CB4EB54C" target="_blank" class="cert-logo">
+                            <img src="images/cert5.svg" alt="Microsoft Certified: Azure Fundamentals">
+                            <div class="cert-details">
+                                <div class="cert-name">Microsoft Certified: Azure Fundamentals</div>
+                                <div class="cert-issuer">Microsoft</div>
+                                <div class="cert-date">Issued: September 2024</div>
+                                <div class="cert-description">Demonstrate foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools.</div>
+                            </div>
+                        </a>
+                        <a href="https://bsi.my.salesforce-sites.com/training/certificateVerification?shareId=f70e71b801337bfe0077cd8d66f61d68ddb6213a" target="_blank" class="cert-logo">
+                            <img src="images/cert6.webp" alt="CQI and IRCA Certified ISO/IEC 27001:2022">
+                            <div class="cert-details">
+                                <div class="cert-name">CQI and IRCA Certified ISO/IEC 27001:2022 Information Security Management Systems (ISMS) Lead Auditor Training Course (PR373)</div>
+                                <div class="cert-issuer">BSI</div>
+                                <div class="cert-date">Issued: August 2023</div>
+                                <div class="cert-description">This course will provide with the knowledge and skills required to perform first, second and third-party audits of Information Security Management Systems against ISO/IEC 27001 (with ISO/IEC 27002), in accordance with ISO 19011 and ISO/IEC 17021, as applicable.</div>
+                            </div>
+                        </a>
+                        <a href="https://fisd.net/certifications/financial-information-associate-directory/" target="_blank" class="cert-logo">
+                            <img src="images/cert7.jpeg" alt="FISD Professional Certification">
+                            <div class="cert-details">
+                                <div class="cert-name">FISD Professional Certification</div>
+                                <div class="cert-issuer">Financial Information Associate</div>
+                                <div class="cert-date">Issued: August 2021</div>
+                                <div class="cert-description">This course will provide with the knowledge and skills required to perform first, second and third-party audits of Information Security Management Systems against ISO/IEC 27001 (with ISO/IEC 27002), in accordance with ISO 19011 and ISO/IEC 17021, as applicable.</div>
+                            </div>
+                        </a>
+                        <!-- Duplicate set for seamless scrolling -->
+                        <a href="https://www.credly.com/badges/46afd902-db47-403d-8adb-9375ad225d53/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert1.png" alt="Meta Certified Marketing Science Professional">
+                            <div class="cert-details">
+                                <div class="cert-name">Meta Certified Marketing Science Professional</div>
+                                <div class="cert-issuer">Meta</div>
+                                <div class="cert-date">Issued: May 2025</div>
+                                <div class="cert-description">The Meta Certified Marketing Science Professional credential is awarded to professionals who have proven advanced competency in using data, insights, and measurement to make marketing recommendations.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/GoogleDataAnalytics" target="_blank" class="cert-logo">
+                            <img src="images/cert2.png" alt="Certified SAFe® 6 Practitioner">
+                            <div class="cert-details">
+                                <div class="cert-name">Certified SAFe® 6 Practitioner</div>
+                                <div class="cert-issuer">Scaled Agile Inc</div>
+                                <div class="cert-date">Issued: October 2024</div>
+                                <div class="cert-description">A Certified SAFe® 6 Practitioner is a SAFe team member responsible for connecting to the Customer, planning the work, delivering value, getting feedback, and relentlessly improving.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.credly.com/badges/ed861f42-5a77-4109-abbb-0afca7bd9b14/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert3.png" alt="AWS Certified Cloud Practitioner">
+                            <div class="cert-details">
+                                <div class="cert-name">AWS Certified Cloud Practitioner</div>
+                                <div class="cert-issuer">Amazon Web Services Training and Certification</div>
+                                <div class="cert-date">Issued: July 2024</div>
+                                <div class="cert-description">Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.</div>
+                            </div>
+                        </a>
+                        <a href="https://www.credly.com/badges/24a63191-d130-4bf3-a778-f8d2144d6ef5/public_url" target="_blank" class="cert-logo">
+                            <img src="images/cert4.png" alt="Cloud Digital Leader Certification">
+                            <div class="cert-details">
+                                <div class="cert-name">Cloud Digital Leader Certification</div>
+                                <div class="cert-issuer">Google Cloud</div>
+                                <div class="cert-date">Issued: June 2024</div>
+                                <div class="cert-description">A Cloud Digital Leader can articulate the capabilities of Google Cloud core products and services and how they benefit organizations. They can also describe common business use cases and how cloud solutions support an enterprise.This certification is for anyone who wishes to demonstrate their knowledge of cloud computing basics and how Google Cloud products and services can be used to achieve an organization's goals.</div>
+                            </div>
+                        </a>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/ChingLamChan-4742/F8A1B3E6C8900EB2?sharingId=8AD67816CB4EB54C" target="_blank" class="cert-logo">
+                            <img src="images/cert5.svg" alt="Microsoft Certified: Azure Fundamentals">
+                            <div class="cert-details">
+                                <div class="cert-name">Microsoft Certified: Azure Fundamentals</div>
+                                <div class="cert-issuer">Microsoft</div>
+                                <div class="cert-date">Issued: September 2024</div>
+                                <div class="cert-description">Demonstrate foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools.</div>
+                            </div>
+                        </a>
+                        <a href="https://bsi.my.salesforce-sites.com/training/certificateVerification?shareId=f70e71b801337bfe0077cd8d66f61d68ddb6213a" target="_blank" class="cert-logo">
+                            <img src="images/cert6.webp" alt="CQI and IRCA Certified ISO/IEC 27001:2022">
+                            <div class="cert-details">
+                                <div class="cert-name">CQI and IRCA Certified ISO/IEC 27001:2022 Information Security Management Systems (ISMS) Lead Auditor Training Course (PR373)</div>
+                                <div class="cert-issuer">BSI</div>
+                                <div class="cert-date">Issued: August 2023</div>
+                                <div class="cert-description">This course will provide with the knowledge and skills required to perform first, second and third-party audits of Information Security Management Systems against ISO/IEC 27001 (with ISO/IEC 27002), in accordance with ISO 19011 and ISO/IEC 17021, as applicable.</div>
+                            </div>
+                        </a>
+                        <a href="https://fisd.net/certifications/financial-information-associate-directory/" target="_blank" class="cert-logo">
+                            <img src="images/cert7.jpeg" alt="FISD Professional Certification">
+                            <div class="cert-details">
+                                <div class="cert-name">FISD Professional Certification</div>
+                                <div class="cert-issuer">Financial Information Associate</div>
+                                <div class="cert-date">Issued: August 2021</div>
+                                <div class="cert-description">This course will provide with the knowledge and skills required to perform first, second and third-party audits of Information Security Management Systems against ISO/IEC 27001 (with ISO/IEC 27002), in accordance with ISO 19011 and ISO/IEC 17021, as applicable.</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="bg-light text-center py-5">
+        <section id="about" class="section">
+            <div class="container">
+                <h2><span>About Me</span></h2>
+                <div class="about-content">
+                    <div class="ios-card about-card">
+                        <div class="ios-card-header">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>Profile</h3>
+                        </div>
+                        <div class="ios-card-content">
+                            <p>
+                                Dynamic and results-oriented professional with a Bachelor of Science in Mathematics and extensive experience in data analysis, seeking to leverage skills and expertise in the role of Business Analyst. Demonstrated proficiency in data analysis, SQL, Python, and business analysis, coupled with a strong academic foundation, to drive ICT solutions and contribute to organizational success.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-cv-container">
+                        <div class="skills-card ios-card">
+                            <div class="ios-card-header">
+                                <i class="fas fa-tools"></i>
+                                <h3>Skills</h3>
+                            </div>
+                            <div class="ios-card-content">
+                                <div class="ios-skill-grid">
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <span class="ios-skill-name">SQL</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fab fa-python"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Python</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Data Analysis</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Machine Learning</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-table"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Excel</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Data Visualization</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fab fa-aws"></i>
+                                        </div>
+                                        <span class="ios-skill-name">AWS</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fab fa-microsoft"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Azure</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-chart-pie"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Tableau</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fab fa-google"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Google Analytics</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Git</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <span class="ios-skill-name">BigQuery</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-cloud"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Cloud Solutions</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-chart-area"></i>
+                                        </div>
+                                        <span class="ios-skill-name">Power BI</span>
+                                    </div>
+                                    <div class="ios-skill-item">
+                                        <div class="ios-skill-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <span class="ios-skill-name">R</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-column">
+                            <div class="projects-card ios-card">
+                                <div class="ios-card-header">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>Projects</h3>
+                                </div>
+                                <div class="ios-card-content">
+                                    <div class="project-files">
+                                        <div class="project-file">
+                                            <div class="file-icon">
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <div class="file-info">
+                                                <span class="file-name">Looker Studio Dashboard</span>
+                                                <span class="file-description">Insurance Product Performance</span>
+                                            </div>
+                                            <div class="file-actions">
+                                                <a href="https://lookerstudio.google.com/u/0/reporting/692990bf-afa5-4ef0-b6db-4300934ff7f3" class="ios-button small preview">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="ios-button small download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="project-file">
+                                            <div class="file-icon">
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                            <div class="file-info">
+                                                <span class="file-name">Tableau Dashboard</span>
+                                                <span class="file-description">Practice on Ridership Historical Data</span>
+                                            </div>
+                                            <div class="file-actions">
+                                                <a href="https://public.tableau.com/app/profile/dakota.chan1582/viz/RidershipHiostoricalData/Historicalridershipofdifferentroutes" class="ios-button small preview">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="ios-button small download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="project-file">
+                                            <div class="file-icon">
+                                                <i class="fas fa-database"></i>
+                                            </div>
+                                            <div class="file-info">
+                                                <span class="file-name">Python Code in Github</span>
+                                                <span class="file-description">Lalamove Riderdata analysis</span>
+                                            </div>
+                                            <div class="file-actions">
+                                                <a href="https://github.com/Dakota-Chan-610/lalamove-assesment/blob/main/Part2.ipynb" class="ios-button small preview">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="ios-button small download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cv-card ios-card">
+                                <div class="ios-card-header">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <h3>Curriculum Vitae</h3>
+                                </div>
+                                <div class="ios-card-content">
+                                    <div class="cv-preview">
+                                        <div class="cv-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span class="cv-filename">Dakota_Chan_CV.pdf</span>
+                                        </div>
+                                        <div class="cv-actions">
+                                            <a href="documents/cv.pdf" class="ios-button preview" onclick="togglePreview(); return false;">
+                                                <i class="fas fa-eye"></i>
+                                                Preview
+                                            </a>
+                                            <a href="documents/cv.pdf" class="ios-button download" download>
+                                                <i class="fas fa-download"></i>
+                                                Download
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="pixel-title">Pixel Jump Game</h2>
+                <div class="scanline"></div>
+                <div class="pixel-blocks">
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                </div>
+                <div class="pixel-rocket"></div>
+                <div class="pixel-ufo"></div>
+                <div class="game-container">
+                    <canvas id="gameCanvas"></canvas>
+                    <div class="game-controls">
+                        <div class="score">Score: <span id="scoreValue">0</span></div>
+                        <button id="startButton" class="btn primary">Start Game</button>
+                    </div>
+                    <div class="game-instructions">
+                        <p>Press SPACE to jump over obstacles!</p>
+                        <p>Help the worker reach the office on time!</p>
+                    </div>
+                    <div class="game-over">
+                        <h2>Game Over!</h2>
+                        <div class="final-score">Final Score: <span id="finalScore">0</span></div>
+                        <button class="replay-button">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="updates" class="section">
+            <div class="updates-bg"></div>
+            <div class="container">
+                <div class="social-feed">
+                    <div class="feed-header">
+                        <h2>Updates</h2>
+                        <button class="create-post-btn">
+                            <i class="fas fa-plus"></i>
+                            Create Post
+                        </button>
+                    </div>
+                    <div class="feed-content">
+                        <div class="feed-main">
+                            <div class="create-post-card">
+                                <div class="post-input">
+                                    <img src="images/avatar.jpg" alt="Your Avatar" class="post-avatar">
+                                    <input type="text" placeholder="What's on your mind?" class="post-text-input">
+                                </div>
+                                <div class="post-actions">
+                                    <button class="post-action-btn">
+                                        <i class="fas fa-image"></i>
+                                        Photo
+                                    </button>
+                                    <button class="post-action-btn">
+                                        <i class="fas fa-video"></i>
+                                        Video
+                                    </button>
+                                    <button class="post-action-btn">
+                                        <i class="fas fa-link"></i>
+                                        Link
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="updates-grid">
+                                <div class="update-card">
+                                    <div class="update-header">
+                                        <div class="user-info">
+                                            <img src="images/avatar.jpg" alt="User Avatar" class="user-avatar">
+                                            <div class="user-details">
+                                                <span class="username">Dakota Chan</span>
+                                                <span class="post-date">May 15, 2024</span>
+                                            </div>
+                                        </div>
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                    <div class="update-content">
+                                        <p class="update-text">Check out my new illustration! 🚀 #Chatgpt #PixelArt</p>
+                                        <div class="update-media">
+                                            <img src="images/update1-1.png" alt="Dashboard Overview" class="update-image">
+                                        </div>
+                                    </div>
+                                    <div class="update-stats">
+                                        <span class="likes-count"><i class="fas fa-heart"></i> 24</span>
+                                        <span class="comments-count"><i class="fas fa-comment"></i> 5</span>
+                                        <span class="shares-count"><i class="fas fa-share"></i> 3</span>
+                                    </div>
+                                    <div class="update-actions">
+                                        <button class="action-btn like-btn">
+                                            <i class="far fa-heart"></i>
+                                            <span>Like</span>
+                                        </button>
+                                        <button class="action-btn comment-btn">
+                                            <i class="far fa-comment"></i>
+                                            <span>Comment</span>
+                                        </button>
+                                        <button class="action-btn share-btn">
+                                            <i class="far fa-share-square"></i>
+                                            <span>Share</span>
+                                        </button>
+                                    </div>
+                                    <div class="comments-section">
+                                        <div class="comment">
+                                            <img src="images/avatar.jpg" alt="Commenter Avatar" class="comment-avatar">
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <span class="commenter-name">Dakota Chan</span>
+                                                    <span class="comment-time">2h ago</span>
+                                                </div>
+                                                <p class="comment-text">Prompt: "A 64 bit pixel art of a female worker in office"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="update-card">
+                                    <div class="update-header">
+                                        <div class="user-info">
+                                            <img src="images/avatar.jpg" alt="User Avatar" class="user-avatar">
+                                            <div class="user-details">
+                                                <span class="username">Dakota Chan</span>
+                                                <span class="post-date">May 10, 2024</span>
+                                            </div>
+                                        </div>
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                    <div class="update-content">
+                                        <p class="update-text">Welcome to my website! 🎉 #Kling</p>
+                                        <div class="update-media">
+                                            <video autoplay loop muted width="100%" height="260px" style="object-fit: contain; border-radius: 8px; background: #f0f0f0;">
+                                                <source src="images/update1-2.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </div>
+                                    <div class="update-stats">
+                                        <span class="likes-count"><i class="fas fa-heart"></i> 42</span>
+                                        <span class="comments-count"><i class="fas fa-comment"></i> 8</span>
+                                        <span class="shares-count"><i class="fas fa-share"></i> 6</span>
+                                    </div>
+                                    <div class="update-actions">
+                                        <button class="action-btn like-btn">
+                                            <i class="far fa-heart"></i>
+                                            <span>Like</span>
+                                        </button>
+                                        <button class="action-btn comment-btn">
+                                            <i class="far fa-comment"></i>
+                                            <span>Comment</span>
+                                        </button>
+                                        <button class="action-btn share-btn">
+                                            <i class="far fa-share-square"></i>
+                                            <span>Share</span>
+                                        </button>
+                                    </div>
+                                    <div class="comments-section">
+                                        <div class="comment">
+                                            <img src="images/avatar.jpg" alt="Commenter Avatar" class="comment-avatar">
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <span class="commenter-name">Dakota Chan</span>
+                                                    <span class="comment-time">1d ago</span>
+                                                </div>
+                                                <p class="comment-text">🎉🎉🎉</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:clchanao@connect.ust.hk">clchanao@connect.ust.hk</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/ching-lam-c-901733175/" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/Dakota-Chan-610" target="_blank">Dakota-Chan-610</a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <h2>My Projects</h2>
-            <div class="row">
-
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://www.advance-metrics.com/wp-content/uploads/2023/11/Looker-Studio-Logo-1-894x400.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Looker Studio Dashboard</h5>
-                            <p class="card-text">Insurance Product Performance</p>
-                            <a href="https://lookerstudio.google.com/reporting/692990bf-afa5-4ef0-b6db-4300934ff7f3" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://1000logos.net/wp-content/uploads/2022/03/Tableau-Logo.png" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Tableau Dashboard</h5>
-                            <p class="card-text">Practice on Ridership Historical Data</p>
-                            <a href="https://public.tableau.com/app/profile/dakota.chan1582/viz/RidershipHiostoricalData/Historicalridershipofdifferentroutes" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://static.coderbridge.com/img/techbridge/images/kdchang/python-logo.png" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Python Code in Github</h5>
-                            <p class="card-text">Lalamove Riderdata analysis</p>
-                            <a href="https://github.com/Dakota-Chan-610/lalamove-assesment/blob/main/Part2.ipynb" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <p>&copy; 2025 Dakota Chan. All rights reserved.</p>
         </div>
-    </section>
-    
-    <section id="certifications" class="bg-light text-center py-5">
-        <div class="container">
-            <h2>Certifications</h2>
-            <div class="certification-slider-wrapper">
-                <div class="certification-slider">
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://www.bsigroup.com/ui/css/img/logo_116.png" alt="ISO 27001" class="card-img-top">
-                            <div class="card-body">
-                                <p>CQI and IRCA Certified ISO/IEC 27001:2022 Information Security Management Systems (ISMS) Lead Auditor Training Course (PR373) BSI</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://d1.awsstatic.com/certification/badges/AWS-Certified-Cloud-Practitioner_badge_150x150.17da917fbddc5383838d9f8209d2030c8d99f31e.png" alt="AWS Certified" class="card-img-top">
-                            <div class="card-body">
-                                <p>AWS Certified Cloud Practitioner</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://images.credly.com/size/340x340/images/44994cda-b5b0-44cb-9a6d-d29b57163073/image.png" alt="GCP Certified" class="card-img-top">
-                            <div class="card-body">
-                                <p>Google Cloud Digital Leader Certification</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://learn.microsoft.com/zh-tw/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg" alt="Azure Certified" class="card-img-top">
-                            <div class="card-body">
-                                <p>Microsoft Certified: Azure Fundamentals</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://images.credly.com/size/340x340/images/08703175-4b43-4c72-9075-5c03a9ebe5d0/image.png" alt="SAFe Certified" class="card-img-top">
-                            <div class="card-body">
-                                <p>Certified SAFe 6 Practitioner</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="card">
-                            <img src="https://d9hhrg4mnvzow.cloudfront.net/promo.siia.net/fisd-fia-flash-cards/a4233011-fisd-pc-fia_08g04708c045000000.png" alt="SAFe Certified" class="card-img-top">
-                            <div class="card-body">
-                                <p>FISD Financial Information Associate (FIA)</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+    </footer>
+
+    <!-- CV Preview Panel -->
+    <div id="cv-preview-panel" class="cv-preview-panel">
+        <div class="preview-header">
+            <div class="preview-title">
+                <i class="fas fa-file-pdf"></i>
+                <span>Dakota_Chan_CV.pdf</span>
             </div>
-            <button id="prevBtn" class="btn btn-secondary">Previous</button>
-            <button id="nextBtn" class="btn btn-primary">Next</button>
+            <button class="close-preview" onclick="togglePreview()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </section>
-
-    <section id="contact" class="text-center py-5">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="social-icons">
-                <a href="mailto:clchanao@connect.ust.hk" target="_blank" class="icon">
-                    <i class="fa fa-envelope"></i>
-                </a>
-                <a href="https://github.com/Dakota-Chan-610" target="_blank" class="icon">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ching-lam-c-901733175/" target="_blank" class="icon">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-            </div>
+        <div class="preview-content">
+            <iframe src="documents/cv.pdf" type="application/pdf" width="100%" height="100%"></iframe>
         </div>
-    </section>
+    </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js'></script>
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
-    <script src="./script.js"></script>
+    <div class="preview-overlay"></div>
 
+    <script src="script.js"></script>
+    <script>
+    document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const countSpan = btn.querySelector('.like-count');
+            let count = parseInt(countSpan.textContent, 10);
+            if (btn.classList.contains('liked')) {
+                count--;
+                btn.classList.remove('liked');
+            } else {
+                count++;
+                btn.classList.add('liked');
+            }
+            countSpan.textContent = count;
+        });
+    });
+    </script>
 </body>
-</html>
+</html> 
