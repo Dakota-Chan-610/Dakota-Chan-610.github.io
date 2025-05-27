@@ -499,13 +499,13 @@ function gameLoop() {
 // Update game state
 function update() {
     // Increase difficulty based on score
-    if (score >= 30) {
+    if (score >= 20) {
         gameSpeed = 10;
-        obstacleInterval = 700;
-    } else if (score >= 20) {
+        obstacleInterval = 1000;
+    } else if (score >= 15) {
         gameSpeed = 8;
-        obstacleInterval = 900;
-    } else if (score >= 10) {
+        obstacleInterval = 1000;
+    } else if (score >= 5) {
         gameSpeed = 6;
         obstacleInterval = 1100;
     } else {
