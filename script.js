@@ -555,7 +555,7 @@ function drawGame() {
     sunOffset += 0.2; // Slow sun movement
 
     // Determine if evening mode should be active
-    const evening = score >= 10;
+    const evening = score >= 20;
 
     // Draw animated background
     drawAnimatedBackground(bgOffset, sunOffset, evening);
@@ -677,184 +677,623 @@ function drawAnimatedBackground(offset, sun, evening) {
     }
 }
 
-// Draw a 64-bit pixel art character inspired by the reference image
-function drawPixelPlayer(x, y, jumping) {
-    // Colors matching the reference image
+// Draw a 64-bit pixel art character
+function drawPixelPlayer(x, y, jumpState = 0) {
+    // Enhanced color palette with more shades for better detail
     const skin = '#f7d6b6';
     const skinShadow = '#e0b48a';
+    const skinDarkShadow = '#c99d76';
+    const skinHighlight = '#ffecd6';
+    
     const hair = '#3b2320';
+    const hairShadow = '#2a1815';
     const hairHighlight = '#6d4c41';
-    const jacket = '#5a6b4a';  // More green/olive color
+    const hairShine = '#8a6552';
+    
+    const jacket = '#5a6b4a';  // Olive green jacket
     const jacketShadow = '#3d4a35';
+    const jacketDarkShadow = '#2a3525';
     const jacketHighlight = '#7a8a6a';
-    const shirt = '#c8d0d8';  // Light gray/white shirt
+    const jacketDetail = '#4a5a3a';
+    
+    const shirt = '#c8d0d8';  // Light gray/blue shirt
     const shirtShadow = '#9aa2aa';
+    const shirtHighlight = '#e0e8f0';
+    
     const pants = '#2c3e50';  // Dark blue/gray pants
     const pantsShadow = '#1a252f';
+    const pantsHighlight = '#3c4e60';
+    
     const shoes = '#222';
     const shoesHighlight = '#555';
+    
     const eye = '#222';
+    const eyeHighlight = '#444';
     const white = '#fff';
     const brow = '#3b2320';
     const mouth = '#a0522d';
-
-    // Head (main shape)
+    const mouthHighlight = '#c06040';
+    const blush = '#e0a080';
+    
+    // Determine if jumping and which phase of jump
+    const jumping = jumpState > 0;
+    const jumpRising = jumpState === 1;
+    const jumpPeak = jumpState === 2;
+    const jumpFalling = jumpState === 3;
+    
+    // Apply jump offset to y position
+    let jumpOffset = 0;
+    if (jumpRising) jumpOffset = -6;
+    else if (jumpPeak) jumpOffset = -10;
+    else if (jumpFalling) jumpOffset = -4;
+    
+    // Apply the jump offset to the y position
+    y += jumpOffset;
+    
+    // Head (improved shape with better curve)
     ctx.fillStyle = skin;
     ctx.fillRect(x + 12, y + 2, 24, 26);
     
-    // Head shadow/shading
+    // Softer face shape with rounded jawline
+    ctx.fillRect(x + 10, y + 8, 2, 16);
+    ctx.fillRect(x + 36, y + 8, 2, 16);
+    
+    // Head shadow/shading with smoother gradients
     ctx.fillStyle = skinShadow;
     ctx.fillRect(x + 28, y + 16, 8, 8);
     ctx.fillRect(x + 20, y + 24, 16, 4);
     
-    // Hair - long wavy style like in reference
+    // Deeper shadows for more dimension
+    ctx.fillStyle = skinDarkShadow;
+    ctx.fillRect(x + 30, y + 20, 4, 4);
+    ctx.fillRect(x + 26, y + 24, 6, 2);
+    
+    // Face highlights for more dimension
+    ctx.fillStyle = skinHighlight;
+    ctx.fillRect(x + 14, y + 6, 6, 2);
+    ctx.fillRect(x + 16, y + 8, 4, 2);
+    
+    // Subtle blush for more lifelike appearance
+    ctx.fillStyle = blush;
+    ctx.fillRect(x + 16, y + 20, 4, 2);
+    ctx.fillRect(x + 30, y + 20, 4, 2);
+    
+    // Hair - improved flowing style with better layering
     ctx.fillStyle = hair;
     // Top of head
     ctx.fillRect(x + 8, y, 32, 8);
-    // Hair sides (longer and more flowing)
-    ctx.fillRect(x + 6, y + 4, 6, 32); // left side, longer
-    ctx.fillRect(x + 36, y + 4, 6, 32); // right side, longer
-    // Hair back/bottom layers
-    ctx.fillRect(x + 10, y + 28, 28, 8);
-    ctx.fillRect(x + 12, y + 32, 24, 6);
     
-    // Hair highlights for texture
+    // Hair sides (more natural flow with varied width)
+    ctx.fillRect(x + 6, y + 4, 6, 32); // left side
+    ctx.fillRect(x + 4, y + 8, 2, 24); // left edge
+    ctx.fillRect(x + 36, y + 4, 6, 32); // right side
+    ctx.fillRect(x + 42, y + 8, 2, 24); // right edge
+    
+    // Hair back/bottom layers with more natural flow
+    ctx.fillRect(x + 10, y + 28, 28, 8);
+    ctx.fillRect(x + 12, y + 36, 24, 6);
+    ctx.fillRect(x + 14, y + 42, 20, 4);
+    ctx.fillRect(x + 16, y + 46, 16, 2);
+    
+    // Hair shadow for more depth
+    ctx.fillStyle = hairShadow;
+    ctx.fillRect(x + 8, y + 2, 4, 4);
+    ctx.fillRect(x + 36, y + 2, 4, 4);
+    
+    // Hair highlights for more texture and dimension
     ctx.fillStyle = hairHighlight;
     ctx.fillRect(x + 16, y + 2, 8, 2);
     ctx.fillRect(x + 14, y + 12, 6, 2);
     ctx.fillRect(x + 26, y + 16, 6, 2);
     ctx.fillRect(x + 18, y + 30, 8, 2);
+    ctx.fillRect(x + 8, y + 20, 4, 2);
+    ctx.fillRect(x + 38, y + 22, 4, 2);
     
-    // Face: eyebrows
+    // Additional hair shine for more depth
+    ctx.fillStyle = hairShine;
+    ctx.fillRect(x + 20, y + 4, 4, 2);
+    ctx.fillRect(x + 30, y + 6, 4, 2);
+    ctx.fillRect(x + 22, y + 32, 6, 2);
+    
+    // Hair movement during jump
+    if (jumping) {
+        // Add hair movement based on jump phase
+        ctx.fillStyle = hair;
+        if (jumpRising) {
+            // Hair lifts slightly when starting to jump
+            ctx.fillRect(x + 14, y + 48, 20, 2);
+        } else if (jumpPeak) {
+            // Hair floats up at peak of jump
+            ctx.fillRect(x + 12, y + 48, 24, 2);
+            ctx.fillRect(x + 14, y + 50, 20, 2);
+        } else if (jumpFalling) {
+            // Hair trails upward when falling
+            ctx.fillRect(x + 12, y + 48, 24, 2);
+        }
+    }
+    
+    // Face: improved eyebrows with more expression
     ctx.fillStyle = brow;
-    ctx.fillRect(x + 18, y + 10, 4, 2);
-    ctx.fillRect(x + 26, y + 10, 4, 2);
     
-    // Face: eyes
+    // Eyebrows change with jump state
+    if (jumping) {
+        if (jumpRising || jumpPeak) {
+            // Raised eyebrows during rising and peak
+            ctx.fillRect(x + 17, y + 9, 5, 2); // left eyebrow raised
+            ctx.fillRect(x + 26, y + 9, 5, 2); // right eyebrow raised
+        } else {
+            // Focused eyebrows when falling
+            ctx.fillRect(x + 17, y + 10, 5, 2);
+            ctx.fillRect(x + 26, y + 10, 5, 2);
+        }
+    } else {
+        // Normal eyebrows
+        ctx.fillRect(x + 17, y + 10, 5, 2);
+        ctx.fillRect(x + 26, y + 10, 5, 2);
+    }
+    
+    // Face: eyes with more detail and expression
     ctx.fillStyle = white;
-    ctx.fillRect(x + 18, y + 14, 4, 4);
-    ctx.fillRect(x + 26, y + 14, 4, 4);
-    ctx.fillStyle = eye;
-    ctx.fillRect(x + 20, y + 16, 2, 2);
-    ctx.fillRect(x + 28, y + 16, 2, 2);
+    ctx.fillRect(x + 17, y + 14, 5, 4);
+    ctx.fillRect(x + 26, y + 14, 5, 4);
     
-    // Face: nose
+    // Eye details change with jump state
+    ctx.fillStyle = eye;
+    if (jumping) {
+        if (jumpRising) {
+            // Wider eyes when starting jump
+            ctx.fillRect(x + 18, y + 15, 3, 2);
+            ctx.fillRect(x + 27, y + 15, 3, 2);
+        } else if (jumpPeak) {
+            // Looking up at peak
+            ctx.fillRect(x + 19, y + 14, 2, 2);
+            ctx.fillRect(x + 28, y + 14, 2, 2);
+        } else {
+            // Looking down when falling
+            ctx.fillRect(x + 19, y + 16, 2, 2);
+            ctx.fillRect(x + 28, y + 16, 2, 2);
+        }
+    } else {
+        // Normal eyes
+        ctx.fillRect(x + 19, y + 15, 2, 2);
+        ctx.fillRect(x + 28, y + 15, 2, 2);
+    }
+    
+    // Eye highlights for more life
+    ctx.fillStyle = eyeHighlight;
+    ctx.fillRect(x + 20, y + 15, 1, 1);
+    ctx.fillRect(x + 29, y + 15, 1, 1);
+    
+    // Face: improved nose with better shading
     ctx.fillStyle = skinShadow;
     ctx.fillRect(x + 24, y + 18, 2, 3);
+    ctx.fillStyle = skinDarkShadow;
+    ctx.fillRect(x + 25, y + 19, 1, 2);
     
-    // Face: mouth (slight smile)
-    ctx.fillStyle = mouth;
-    ctx.fillRect(x + 22, y + 22, 6, 2);
+    // Face: mouth with more detail and changes with jump
+    if (jumping) {
+        if (jumpRising || jumpPeak) {
+            // Open mouth during rising and peak
+            ctx.fillStyle = mouth;
+            ctx.fillRect(x + 21, y + 22, 7, 3);
+            ctx.fillStyle = '#300';
+            ctx.fillRect(x + 23, y + 23, 3, 2);
+            ctx.fillStyle = mouthHighlight;
+            ctx.fillRect(x + 22, y + 22, 5, 1);
+        } else {
+            // Determined expression when falling
+            ctx.fillStyle = mouth;
+            ctx.fillRect(x + 21, y + 22, 7, 2);
+            ctx.fillStyle = mouthHighlight;
+            ctx.fillRect(x + 22, y + 22, 5, 1);
+        }
+    } else {
+        // Normal smile
+        ctx.fillStyle = mouth;
+        ctx.fillRect(x + 21, y + 22, 7, 2);
+        ctx.fillStyle = mouthHighlight;
+        ctx.fillRect(x + 22, y + 22, 5, 1);
+    }
     
-    // Neck
+    // Neck with better shading
     ctx.fillStyle = skin;
     ctx.fillRect(x + 20, y + 28, 8, 6);
+    ctx.fillStyle = skinShadow;
+    ctx.fillRect(x + 24, y + 30, 4, 4);
     
-    // Shirt/undershirt (visible at collar)
+    // Shirt/undershirt with more detail
     ctx.fillStyle = shirt;
     ctx.fillRect(x + 18, y + 34, 12, 6);
+    ctx.fillStyle = shirtShadow;
+    ctx.fillRect(x + 24, y + 36, 6, 4);
+    ctx.fillStyle = shirtHighlight;
+    ctx.fillRect(x + 18, y + 34, 4, 2);
     
-    // Jacket - main body
+    // Jacket - improved with more detail and better fit
     ctx.fillStyle = jacket;
     ctx.fillRect(x + 14, y + 32, 20, 24);
     
-    // Jacket details and shading
+    // Jacket details and shading for more realism
     ctx.fillStyle = jacketShadow;
     ctx.fillRect(x + 26, y + 44, 8, 12);
     ctx.fillRect(x + 16, y + 50, 6, 6);
     
-    // Jacket highlights
+    // Jacket highlights and details
     ctx.fillStyle = jacketHighlight;
     ctx.fillRect(x + 16, y + 34, 2, 8);
     ctx.fillRect(x + 30, y + 36, 2, 6);
     
-    // Arms
+    // Jacket seams and details
+    ctx.fillStyle = jacketDetail;
+    ctx.fillRect(x + 14, y + 40, 2, 16);
+    ctx.fillRect(x + 32, y + 40, 2, 16);
+    ctx.fillRect(x + 18, y + 54, 12, 2);
+    
+    // Jacket movement during jump
+    if (jumping) {
+        if (jumpRising) {
+            // Jacket lifts slightly when starting jump
+            ctx.fillStyle = jacket;
+            ctx.fillRect(x + 12, y + 32, 2, 20);
+            ctx.fillRect(x + 34, y + 32, 2, 20);
+        } else if (jumpPeak) {
+            // Jacket floats up at peak
+            ctx.fillStyle = jacket;
+            ctx.fillRect(x + 12, y + 32, 2, 16);
+            ctx.fillRect(x + 34, y + 32, 2, 16);
+            ctx.fillStyle = jacketHighlight;
+            ctx.fillRect(x + 12, y + 32, 1, 8);
+            ctx.fillRect(x + 35, y + 32, 1, 8);
+        } else if (jumpFalling) {
+            // Jacket trails upward when falling
+            ctx.fillStyle = jacket;
+            ctx.fillRect(x + 12, y + 32, 2, 18);
+            ctx.fillRect(x + 34, y + 32, 2, 18);
+        }
+    }
+    
+    // Arms with better proportions and movement during jump
     ctx.fillStyle = jacket;
-    ctx.fillRect(x + 6, y + 36, 8, 20); // left arm
-    ctx.fillRect(x + 34, y + 36, 8, 20); // right arm
+    if (jumping) {
+        if (jumpRising) {
+            // Arms raise up when starting jump
+            ctx.fillRect(x + 6, y + 32, 8, 20); // left arm raised
+            ctx.fillRect(x + 34, y + 32, 8, 20); // right arm raised
+            
+            // Arm shading
+            ctx.fillStyle = jacketShadow;
+            ctx.fillRect(x + 10, y + 44, 4, 8);
+            ctx.fillRect(x + 34, y + 44, 4, 8);
+            
+            // Arm highlights
+            ctx.fillStyle = jacketHighlight;
+            ctx.fillRect(x + 6, y + 34, 2, 6);
+            ctx.fillRect(x + 40, y + 34, 2, 6);
+        } else if (jumpPeak) {
+            // Arms fully extended at peak
+            ctx.fillRect(x + 4, y + 30, 8, 20); // left arm extended up
+            ctx.fillRect(x + 36, y + 30, 8, 20); // right arm extended up
+            
+            // Arm shading
+            ctx.fillStyle = jacketShadow;
+            ctx.fillRect(x + 8, y + 42, 4, 8);
+            ctx.fillRect(x + 36, y + 42, 4, 8);
+            
+            // Arm highlights
+            ctx.fillStyle = jacketHighlight;
+            ctx.fillRect(x + 4, y + 32, 2, 6);
+            ctx.fillRect(x + 42, y + 32, 2, 6);
+        } else if (jumpFalling) {
+            // Arms start to come down when falling
+            ctx.fillRect(x + 5, y + 34, 8, 20); // left arm coming down
+            ctx.fillRect(x + 35, y + 34, 8, 20); // right arm coming down
+            
+            // Arm shading
+            ctx.fillStyle = jacketShadow;
+            ctx.fillRect(x + 9, y + 46, 4, 8);
+            ctx.fillRect(x + 35, y + 46, 4, 8);
+            
+            // Arm highlights
+            ctx.fillStyle = jacketHighlight;
+            ctx.fillRect(x + 5, y + 36, 2, 6);
+            ctx.fillRect(x + 41, y + 36, 2, 6);
+        }
+    } else {
+        // Normal arms
+        ctx.fillRect(x + 6, y + 36, 8, 20); // left arm
+        ctx.fillRect(x + 34, y + 36, 8, 20); // right arm
+        
+        // Arm shading
+        ctx.fillStyle = jacketShadow;
+        ctx.fillRect(x + 10, y + 48, 4, 8);
+        ctx.fillRect(x + 34, y + 48, 4, 8);
+        
+        // Arm highlights
+        ctx.fillStyle = jacketHighlight;
+        ctx.fillRect(x + 6, y + 38, 2, 6);
+        ctx.fillRect(x + 40, y + 38, 2, 6);
+    }
     
-    // Arm shading
-    ctx.fillStyle = jacketShadow;
-    ctx.fillRect(x + 10, y + 48, 4, 8);
-    ctx.fillRect(x + 34, y + 48, 4, 8);
+    // Hands with more detail and better shape, changing with jump
+    if (jumping) {
+        if (jumpRising) {
+            // Hands start to raise
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 8, y + 52, 4, 6); // left hand
+            ctx.fillRect(x + 7, y + 54, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 10, y + 54, 2, 4);
+            
+            // Right hand
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 36, y + 52, 4, 6);
+            ctx.fillRect(x + 40, y + 54, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 38, y + 54, 2, 4);
+        } else if (jumpPeak) {
+            // Hands fully raised at peak
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 6, y + 50, 4, 6); // left hand
+            ctx.fillRect(x + 5, y + 52, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 8, y + 52, 2, 4);
+            
+            // Right hand
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 38, y + 50, 4, 6);
+            ctx.fillRect(x + 42, y + 52, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 40, y + 52, 2, 4);
+        } else if (jumpFalling) {
+            // Hands start to come down
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 7, y + 54, 4, 6); // left hand
+            ctx.fillRect(x + 6, y + 56, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 9, y + 56, 2, 4);
+            
+            // Right hand
+            ctx.fillStyle = skin;
+            ctx.fillRect(x + 37, y + 54, 4, 6);
+            ctx.fillRect(x + 41, y + 56, 1, 2); // thumb
+            ctx.fillStyle = skinShadow;
+            ctx.fillRect(x + 39, y + 56, 2, 4);
+        }
+    } else {
+        // Normal hands
+        ctx.fillStyle = skin;
+        ctx.fillRect(x + 8, y + 56, 4, 6); // left hand
+        ctx.fillRect(x + 7, y + 58, 1, 2); // thumb
+        ctx.fillStyle = skinShadow;
+        ctx.fillRect(x + 10, y + 58, 2, 4);
+        
+        // Right hand
+        ctx.fillStyle = skin;
+        ctx.fillRect(x + 36, y + 56, 4, 6);
+        ctx.fillRect(x + 40, y + 58, 1, 2); // thumb
+        ctx.fillStyle = skinShadow;
+        ctx.fillRect(x + 38, y + 58, 2, 4);
+    }
     
-    // Hands
-    ctx.fillStyle = skin;
-    ctx.fillRect(x + 8, y + 56, 4, 6); // left hand
-    ctx.fillStyle = skinShadow;
-    ctx.fillRect(x + 10, y + 58, 2, 4);
-    
-    // Right hand position (as if typing/resting)
-    ctx.fillStyle = skin;
-    ctx.fillRect(x + 36, y + 56, 4, 6);
-    ctx.fillStyle = skinShadow;
-    ctx.fillRect(x + 38, y + 58, 2, 4);
-    
-    // Pants and legs
+    // Pants and legs with better proportions and improved jump animation
     ctx.fillStyle = pants;
     if (jumping) {
-        // Jumping pose: one leg forward, one back (angled)
-        ctx.save();
-        // Left leg (forward, angled)
-        ctx.translate(x + 18, y + 56);
-        ctx.rotate(-0.3);
-        ctx.fillRect(0, 0, 6, 18);
-        ctx.restore();
-        // Right leg (back, angled)
-        ctx.save();
-        ctx.translate(x + 28, y + 56);
-        ctx.rotate(0.3);
-        ctx.fillRect(0, 0, 6, 18);
-        ctx.restore();
+        if (jumpRising) {
+            // Legs bend when starting to jump
+            ctx.save();
+            // Left leg (bent for jump)
+            ctx.translate(x + 18, y + 56);
+            ctx.rotate(-0.4);
+            ctx.fillRect(0, 0, 6, 16);
+            ctx.restore();
+            
+            // Right leg (bent for jump)
+            ctx.save();
+            ctx.translate(x + 28, y + 56);
+            ctx.rotate(0.4);
+            ctx.fillRect(0, 0, 6, 16);
+            ctx.restore();
+        } else if (jumpPeak) {
+            // Legs extend at peak of jump
+            ctx.save();
+            // Left leg (extended)
+            ctx.translate(x + 18, y + 56);
+            ctx.rotate(-0.2);
+            ctx.fillRect(0, 0, 6, 18);
+            ctx.restore();
+            
+            // Right leg (extended)
+            ctx.save();
+            ctx.translate(x + 28, y + 56);
+            ctx.rotate(0.2);
+            ctx.fillRect(0, 0, 6, 18);
+            ctx.restore();
+        } else if (jumpFalling) {
+            // Legs prepare for landing
+            ctx.save();
+            // Left leg (preparing for landing)
+            ctx.translate(x + 18, y + 56);
+            ctx.rotate(-0.3);
+            ctx.fillRect(0, 0, 6, 17);
+            ctx.restore();
+            
+            // Right leg (preparing for landing)
+            ctx.save();
+            ctx.translate(x + 28, y + 56);
+            ctx.rotate(0.3);
+            ctx.fillRect(0, 0, 6, 17);
+            ctx.restore();
+        }
     } else {
-        // Standing pose
+        // Standing pose with better proportions
         ctx.fillRect(x + 18, y + 56, 6, 18); // left leg
         ctx.fillRect(x + 24, y + 56, 6, 18); // right leg
     }
-    // Pants shading
+    
+    // Pants shading with more detail
     ctx.fillStyle = pantsShadow;
     if (jumping) {
-        ctx.save();
-        ctx.translate(x + 26, y + 66);
-        ctx.rotate(0.3);
-        ctx.fillRect(0, 0, 4, 8);
-        ctx.restore();
+        if (jumpRising) {
+            ctx.save();
+            ctx.translate(x + 26, y + 64);
+            ctx.rotate(0.4);
+            ctx.fillRect(0, 0, 4, 8);
+            ctx.restore();
+        } else if (jumpPeak) {
+            ctx.save();
+            ctx.translate(x + 26, y + 66);
+            ctx.rotate(0.2);
+            ctx.fillRect(0, 0, 4, 8);
+            ctx.restore();
+        } else if (jumpFalling) {
+            ctx.save();
+            ctx.translate(x + 26, y + 65);
+            ctx.rotate(0.3);
+            ctx.fillRect(0, 0, 4, 8);
+            ctx.restore();
+        }
     } else {
         ctx.fillRect(x + 26, y + 66, 4, 8);
+        ctx.fillRect(x + 18, y + 66, 2, 8);
     }
-    // Shoes
+    
+    // Pants highlights
+    ctx.fillStyle = pantsHighlight;
+    if (!jumping) {
+        ctx.fillRect(x + 20, y + 58, 2, 6);
+        ctx.fillRect(x + 24, y + 58, 2, 6);
+    } else if (jumpPeak) {
+        // Add highlights at peak of jump
+        ctx.save();
+        ctx.translate(x + 20, y + 58);
+        ctx.rotate(-0.2);
+        ctx.fillRect(0, 0, 2, 6);
+        ctx.restore();
+        
+        ctx.save();
+        ctx.translate(x + 30, y + 58);
+        ctx.rotate(0.2);
+        ctx.fillRect(0, 0, 2, 6);
+        ctx.restore();
+    }
+    
+    // Shoes with better shape and movement during jump
     ctx.fillStyle = shoes;
     if (jumping) {
-        ctx.save();
-        ctx.translate(x + 16, y + 74);
-        ctx.rotate(-0.3);
-        ctx.fillRect(0, 0, 8, 4);
-        ctx.restore();
-        ctx.save();
-        ctx.translate(x + 24, y + 74);
-        ctx.rotate(0.3);
-        ctx.fillRect(0, 0, 8, 4);
-        ctx.restore();
+        if (jumpRising) {
+            // Shoes angle more during initial jump
+            ctx.save();
+            ctx.translate(x + 16, y + 72);
+            ctx.rotate(-0.4);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 24, y + 72);
+            ctx.rotate(0.4);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+        } else if (jumpPeak) {
+            // Shoes point slightly at peak
+            ctx.save();
+            ctx.translate(x + 16, y + 74);
+            ctx.rotate(-0.2);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 24, y + 74);
+            ctx.rotate(0.2);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+        } else if (jumpFalling) {
+            // Shoes prepare for landing
+            ctx.save();
+            ctx.translate(x + 16, y + 73);
+            ctx.rotate(-0.3);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 24, y + 73);
+            ctx.rotate(0.3);
+            ctx.fillRect(0, 0, 8, 4);
+            ctx.restore();
+        }
     } else {
+        // Normal shoes
         ctx.fillRect(x + 16, y + 74, 8, 4); // left shoe
         ctx.fillRect(x + 24, y + 74, 8, 4); // right shoe
     }
-    // Shoe highlights
+    
+    // Shoe highlights with more detail
     ctx.fillStyle = shoesHighlight;
     if (jumping) {
-        ctx.save();
-        ctx.translate(x + 18, y + 76);
-        ctx.rotate(-0.3);
-        ctx.fillRect(0, 0, 4, 2);
-        ctx.restore();
-        ctx.save();
-        ctx.translate(x + 26, y + 76);
-        ctx.rotate(0.3);
-        ctx.fillRect(0, 0, 4, 2);
-        ctx.restore();
+        if (jumpRising) {
+            ctx.save();
+            ctx.translate(x + 18, y + 74);
+            ctx.rotate(-0.4);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 26, y + 74);
+            ctx.rotate(0.4);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+        } else if (jumpPeak) {
+            ctx.save();
+            ctx.translate(x + 18, y + 76);
+            ctx.rotate(-0.2);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 26, y + 76);
+            ctx.rotate(0.2);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+        } else if (jumpFalling) {
+            ctx.save();
+            ctx.translate(x + 18, y + 75);
+            ctx.rotate(-0.3);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+            
+            ctx.save();
+            ctx.translate(x + 26, y + 75);
+            ctx.rotate(0.3);
+            ctx.fillRect(0, 0, 4, 2);
+            ctx.restore();
+        }
     } else {
         ctx.fillRect(x + 18, y + 76, 4, 2);
         ctx.fillRect(x + 26, y + 76, 4, 2);
+    }
+    
+    // Add jump effects if jumping
+    if (jumping) {
+        // Add motion lines
+        ctx.fillStyle = '#fff';
+        ctx.globalAlpha = 0.4;
+        
+        if (jumpRising) {
+            // Rising motion lines
+            ctx.fillRect(x + 14, y + 80, 2, 4);
+            ctx.fillRect(x + 32, y + 80, 2, 4);
+        } else if (jumpPeak) {
+            // Peak motion effect
+            ctx.fillRect(x + 10, y + 78, 2, 2);
+            ctx.fillRect(x + 36, y + 78, 2, 2);
+            ctx.fillRect(x + 8, y + 80, 2, 2);
+            ctx.fillRect(x + 38, y + 80, 2, 2);
+        } else if (jumpFalling) {
+            // Falling motion lines
+            ctx.fillRect(x + 12, y + 76, 2, 6);
+            ctx.fillRect(x + 34, y + 76, 2, 6);
+        }
+        
+        ctx.globalAlpha = 1.0;
     }
 }
 
